@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">K23411TApp</string>
+    <string name="str_university">University of Economics and Law</string>
+    <string name="str_your_major">Show your Major</string>
+    <string name="str_my_major">Data Science!!!</string>
+    <string name="str_login_system">LOGIN SYSTEM</string>
+    <string name="str_hint_username">Enter your user name here</string>
+    <string name="str_username">User name:</string>
+    <string name="str_password">Password:</string>
+    <string name="str_hint_password">Enter your password here</string>
+    <string name="str_login">Login</string>
+    <string name="str_exit">Exit</string>
+    <string name="str_login_success">LOGIN SUCCESSFUL!!!</string>
+    <string name="str_login_failed">LOGIN FAILED!!!</string>
+</resources>

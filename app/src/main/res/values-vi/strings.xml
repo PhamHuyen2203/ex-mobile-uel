@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">K23411TApp</string>
+    <string name="str_university">Trường Đại học Kinh tế - Luật</string>
+    <string name="str_your_major">Hiển thị chuyên ngành của bạn</string>
+    <string name="str_my_major">Khoa học dữ liệu!!!</string>
+    <string name="str_login_system">ĐĂNG NHẬP HỆ THỐNG</string>
+    <string name="str_hint_username">Nhập tên người dùng của bạn</string>
+    <string name="str_username">Tên người dùng:</string>
+    <string name="str_password">Mật khẩu</string>
+    <string name="str_hint_password">Nhập mật khẩu của bạn</string>
+    <string name="str_login">Đăng nhập</string>
+    <string name="str_exit">Thoát</string>
+    <string name="str_login_success">Đăng nhập thành công!!!</string>
+    <string name="str_login_failed">Đăng nhập thất bại!!!</string>
+</resources>

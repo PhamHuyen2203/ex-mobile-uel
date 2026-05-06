@@ -1,5 +1,6 @@
 package com.example.k23411tapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -37,5 +38,10 @@ public class MainActivity extends AppCompatActivity {
         //String my_major="Data Science!!!";
         String my_major=getString(R.string.str_my_major);
         Toast.makeText(this,my_major, Toast.LENGTH_LONG).show();
+    }
+
+    public void openCalculatorApp (View view) {
+        Intent intent=new Intent(MainActivity.this, CalculatorActivity.class);
+        startActivity(intent);
     }
 }

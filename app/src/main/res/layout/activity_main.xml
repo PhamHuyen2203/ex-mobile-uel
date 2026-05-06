@@ -8,46 +8,65 @@
     android:orientation="vertical"
     app:layoutDescription="@xml/activity_main_scene">
 
-    <TextView
-        android:id="@+id/textView2"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome to K23411T"
-        android:textColor="#3F51B5" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="say_hello"
-        android:text="Click me!" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="exit_app"
-        android:text="Close" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome to K23411T"
+                android:textColor="#3F51B5" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hey! K23411T" />
+            <Button
+                android:id="@+id/btnClickme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="say_hello"
+                android:text="Click me!" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/str_university"
-        android:textAlignment="center"
-        android:textColor="#3F51B5"
-        android:textSize="24sp" />
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="exit_app"
+                android:text="Close" />
 
-    <Button
-        android:onClick="show_my_major"
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/str_your_major" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hey! K23411T" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_university"
+                android:textAlignment="center"
+                android:textColor="#3F51B5"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btnShowMajor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="show_my_major"
+                android:text="@string/str_your_major" />
+
+            <Button
+                android:onClick="openCalculatorApp"
+                android:id="@+id/btnOpenCalApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_open_calculator_app" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

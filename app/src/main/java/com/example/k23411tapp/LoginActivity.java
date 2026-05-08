@@ -1,12 +1,17 @@
 package com.example.k23411tapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -17,6 +22,10 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtUsername;
     EditText edtPassword;
     TextView txtMessage;
+    CheckBox chkSaveInfor;
+    String name_share_ref="LoginInfor";
+
+    RadioButton radAdministrator, radEmployee;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +44,9 @@ public class LoginActivity extends AppCompatActivity {
         edtUsername=findViewById(R.id.edtUsername);
         edtPassword=findViewById(R.id.edtPassword);
         txtMessage=findViewById(R.id.txtMessage);
+        chkSaveInfor=findViewById(R.id.chkSaveInfor);
+        radAdministrator=findViewById(R.id.radAdministrator);
+        radEmployee=findViewById(R.id.radEmployee);
     }
 
     public void loginSystem(View view) {
@@ -42,9 +54,24 @@ public class LoginActivity extends AppCompatActivity {
         String pw=edtPassword.getText().toString();
         if(username.equalsIgnoreCase("admin") && pw.equals("123"))
         {
-            Intent intent=new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
+            SharedPreferences preferences=getSharedPreferences(name_share_ref,MODE_PRIVATE);
+            SharedPreferences.Editor editor=preferences.edit();
+            editor.putString("UserName", username);
+            editor.putString("Password", pw);
+            boolean saved=chkSaveInfor.isChecked();
+            editor.putBoolean("SAVED", saved);
+            editor.commit();
 
+            if(radAdministrator.isChecked())
+            {
+                Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+            else
+            {
+                Intent intent=new Intent(LoginActivity.this, EmployeeManagementActivity.class);
+                startActivity(intent);
+            }
             txtMessage.setText(R.string.str_login_success);
         }
         else
@@ -54,6 +81,39 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void exitSystem(View view) {
-        finish();
+        AlertDialog.Builder buider=new AlertDialog.Builder(LoginActivity.this);
+        buider.setTitle(R.string.str_confirm_exit_title);
+        buider.setMessage(R.string.str_confirm_exit_message);
+        buider.setIcon(android.R.drawable.ic_dialog_alert);
+        buider.setPositiveButton(R.string.str_confirm_exit_yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        buider.setNegativeButton(R.string.str_confirm_exit_no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        AlertDialog dialog=buider.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences preferences=getSharedPreferences(name_share_ref,MODE_PRIVATE);
+        String username=preferences.getString("UserName", "");
+        String password=preferences.getString("Password", "");
+        boolean saved=preferences.getBoolean("SAVED", false);
+        if(saved)
+        {
+            edtUsername.setText(username);
+            edtPassword.setText(password);
+        }
+        chkSaveInfor.setChecked(saved);
     }
 }

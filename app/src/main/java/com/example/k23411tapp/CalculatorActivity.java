@@ -1,5 +1,6 @@
 package com.example.k23411tapp;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,24 @@ public class CalculatorActivity extends AppCompatActivity {
     TextView txtMC, txtMR, txtMPlus, txtMMinus, txtMS, txtM;
     View.OnClickListener m_click_listener;
     double memory = 0;
+    String name_share_ref = "CalculatorInfor";
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences preferences = getSharedPreferences(name_share_ref, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("Formular", edtFormular.getText().toString());
+        editor.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences preferences = getSharedPreferences(name_share_ref, MODE_PRIVATE);
+        String last_formular = preferences.getString("Formular", "0");
+        edtFormular.setText(last_formular);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +86,6 @@ public class CalculatorActivity extends AppCompatActivity {
             }
         });
 
-        // Xử lý các phép tính nhanh
         btn1_x.setOnClickListener(v -> {
             double val = Double.parseDouble(call_lib(edtFormular.getText().toString()));
             edtFormular.setText(formatResult(1 / val));

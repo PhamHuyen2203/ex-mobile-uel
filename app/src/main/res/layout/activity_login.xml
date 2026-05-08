@@ -101,6 +101,44 @@
                 android:padding="12dp"
                 android:textSize="16sp" />
 
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_login_role"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radAdministrator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/str_role_administrator" />
+
+                <RadioButton
+                    android:id="@+id/radEmployee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/str_role_employee" />
+
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/chkSaveInfor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_save_login_infor"
+                android:padding="12dp"
+                android:textSize="16sp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

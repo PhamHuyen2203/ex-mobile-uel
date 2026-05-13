@@ -19,13 +19,19 @@
     <string name="str_login_role">Đăng nhập với vai trò:</string>
     <string name="str_role_employee">Nhân viên</string>
     <string name="str_role_administrator">Quản trị</string>
-    <string name="str_confirm_exit_title">Confirm Exit</string>
-    <string name="str_confirm_exit_message">Are you want to exit?</string>
-    <string name="str_confirm_exit_yes">YES</string>
-    <string name="str_confirm_exit_no">NO</string>
+    <string name="str_confirm_exit_title">Xác nhận thoát</string>
+    <string name="str_confirm_exit_message">Bạn có muốn thoát không?</string>
+    <string name="str_confirm_exit_yes">CÓ</string>
+    <string name="str_confirm_exit_no">KHÔNG</string>
     <string name="str_mc">MC</string>
     <string name="str_mr">MR</string>
     <string name="str_mplus">M+</string>
     <string name="str_mminus">M-</string>
     <string name="str_ms">MS</string>
+    <string name="str_confirm_exit">Bạn có chắc là bạn muốn thoát không?</string>
+    <string name="str_id">ID:</string>
+    <string name="str_name">Tên nhân viên:</string>
+    <string name="str_phone_number">SĐT:</string>
+    <string name="str_save">Lưu</string>
+    <string name="str_clear">Xóa trắng</string>
 </resources>

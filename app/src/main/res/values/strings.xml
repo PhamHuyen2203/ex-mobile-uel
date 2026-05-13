@@ -23,8 +23,14 @@
     <string name="str_login_role">Login Role:</string>
     <string name="str_role_employee">Employee</string>
     <string name="str_role_administrator">Administrator</string>
-    <string name="str_confirm_exit_title">Xác nhận thoát</string>
-    <string name="str_confirm_exit_message">Bạn có chắc chắn muốn thoát?</string>
+    <string name="str_confirm_exit_title">Confirm Exit</string>
+    <string name="str_confirm_exit_message">Are you want to exit?</string>
     <string name="str_confirm_exit_yes">CÓ</string>
     <string name="str_confirm_exit_no">KHÔNG</string>
+    <string name="str_confirm_exit">Are you sure you want to exit?</string>
+    <string name="str_id">ID:</string>
+    <string name="str_name">Name:</string>
+    <string name="str_phone_number">Phone Number:</string>
+    <string name="str_save">Save</string>
+    <string name="str_clear">Clear</string>
 </resources>

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,7 +44,15 @@ public class EmployeeManagementActivity extends AppCompatActivity {
         super.onPause();
         SharedPreferences prefs = getSharedPreferences(preferenceName, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
+        editor.clear(); // Xóa dữ liệu cũ để lưu lại danh sách mới nhất
+        
         editor.putInt("SelectedIndex", selectedIndex);
+        // Lưu số lượng nhân viên
+        editor.putInt("EmployeeCount", ListOfEmployee.size());
+        // Lưu từng nhân viên theo index
+        for (int i = 0; i < ListOfEmployee.size(); i++) {
+            editor.putString("Employee_" + i, ListOfEmployee.get(i));
+        }
         editor.apply();
     }
 
@@ -51,6 +60,25 @@ public class EmployeeManagementActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         SharedPreferences prefs = getSharedPreferences(preferenceName, MODE_PRIVATE);
+        
+        // Đọc số lượng nhân viên đã lưu (mặc định là -1 nếu chưa từng lưu)
+        int count = prefs.getInt("EmployeeCount", -1);
+        
+        if (count != -1) {
+            ListOfEmployee.clear(); // Xóa dữ liệu tạm thời
+            for (int i = 0; i < count; i++) {
+                String emp = prefs.getString("Employee_" + i, "");
+                if (!emp.isEmpty()) {
+                    ListOfEmployee.add(emp);
+                }
+            }
+        } else {
+            // Nếu là lần đầu chạy app (chưa có count), nạp dữ liệu mẫu
+            if (ListOfEmployee.isEmpty()) {
+                sampleData();
+            }
+        }
+
         selectedIndex = prefs.getInt("SelectedIndex", -1);
         if (selectedIndex != -1 && selectedIndex < ListOfEmployee.size()) {
             displaySelectedEmployee(selectedIndex);
@@ -74,7 +102,7 @@ public class EmployeeManagementActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_employee_management);
         addView();
-        sampleData();
+        // sampleData(); // Đã chuyển vào onResume để xử lý thông minh hơn
         addEvent();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -101,7 +129,7 @@ public class EmployeeManagementActivity extends AppCompatActivity {
         adapterEmployee.notifyDataSetChanged();
         //hoặc cách thứ 2: Tạo vòng lặp thêm khoảng 1000 nhân viên
         Random random=new Random(); //random phonenumber
-        for(int i=0;i<1000;i++) {
+        for(int i=0;i<10;i++) {
             @SuppressLint("DefaultLocale") String id = "EMP" + String.format("%03d", i + 4);
             String name = "Employee " + (i + 4);
             String phone = "090";
@@ -122,7 +150,7 @@ public class EmployeeManagementActivity extends AppCompatActivity {
         edtName = findViewById(R.id.edtName);
         edtPhone = findViewById(R.id.edtPhone);
         btnSave = findViewById(R.id.btnSave);
-        btnClear = findViewById(R.id.btnClear);
+        btnClear = findViewById(R.id.btnDelete);
         btnExit = findViewById(R.id.btnExit);
         lvEmployee = findViewById(R.id.lvEmployee);
         ListOfEmployee = new ArrayList<>();
@@ -161,5 +189,66 @@ public class EmployeeManagementActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+
+    public void saveEmployee (View view) {
+        String id = edtID.getText().toString().trim();
+        String name = edtName.getText().toString().trim();
+        String phone = edtPhone.getText().toString().trim();
+
+        if (id.isEmpty()) {
+            edtID.setError(getString(R.string.str_error_id_empty));
+            return;
+        }
+
+        String emp = id + " - " + name + " - " + phone;
+        int foundIndex = -1;
+
+        // Tìm xem ID đã tồn tại trong danh sách chưa
+        for (int i = 0; i < ListOfEmployee.size(); i++) {
+            if (ListOfEmployee.get(i).startsWith(id + " - ")) {
+                foundIndex = i;
+                break;
+            }
+        }
+
+        if (foundIndex != -1) {
+            // Nếu đã tồn tại thì cập nhật
+            ListOfEmployee.set(foundIndex, emp);
+            selectedIndex = foundIndex;
+        } else {
+            // Nếu chưa tồn tại thì thêm mới
+            ListOfEmployee.add(emp);
+            selectedIndex = ListOfEmployee.size() - 1;
+        }
+
+        adapterEmployee.notifyDataSetChanged();
+        lvEmployee.smoothScrollToPosition(selectedIndex);
+    }
+
+    public void deleteEmployee(View view) {
+        if (selectedIndex == -1) {
+            Toast.makeText(this, R.string.str_toast_select_employee, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.str_confirm_delete_title);
+        builder.setMessage(R.string.str_confirm_delete_message);
+        builder.setPositiveButton(R.string.str_yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ListOfEmployee.remove(selectedIndex);
+                selectedIndex = -1;
+                adapterEmployee.notifyDataSetChanged();
+                // Xóa nội dung trên các EditText sau khi xóa
+                edtID.setText("");
+                edtName.setText("");
+                edtPhone.setText("");
+                Toast.makeText(EmployeeManagementActivity.this, R.string.str_toast_delete_success, Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton(R.string.str_no, null);
+        builder.show();
     }
 }

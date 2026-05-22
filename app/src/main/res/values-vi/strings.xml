@@ -33,5 +33,20 @@
     <string name="str_name">Tên nhân viên:</string>
     <string name="str_phone_number">SĐT:</string>
     <string name="str_save">Lưu</string>
+    <string name="str_delete">Xóa</string>
     <string name="str_clear">Xóa trắng</string>
+    <string name="str_confirm_delete_title">Xác nhận xóa</string>
+    <string name="str_confirm_delete_message">Bạn có chắc chắn muốn xóa nhân viên này không?</string>
+    <string name="str_yes">Có</string>
+    <string name="str_no">Không</string>
+    <string name="str_error_id_empty">Vui lòng nhập ID</string>
+    <string name="str_toast_select_employee">Vui lòng chọn nhân viên để xóa</string>
+    <string name="str_toast_delete_success">Đã xóa thành công</string>
+    <string name="str_department">Phòng ban</string>
+    <string name="str_employee">Nhân viên:</string>
+    <string name="str_birthPlace">Nơi sinh</string>
+    <string name="str_add_new_employee">Thêm Nhân Viên Mới</string>
+    <string name="str_please_input_all_info">Vui lòng nhập đầy đủ thông tin bên dưới</string>
+    <string name="str_cancel">Hủy</string>
+    <string name="str_save_now">Lưu lại</string>
 </resources>

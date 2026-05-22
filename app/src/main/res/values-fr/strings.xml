@@ -28,4 +28,25 @@
     <string name="str_confirm_exit_message">Êtes-vous sûr de vouloir quitter ?</string>
     <string name="str_confirm_exit_yes">OUI</string>
     <string name="str_confirm_exit_no">NON</string>
+    <string name="str_confirm_exit">Êtes-vous sûr de vouloir quitter ?</string>
+    <string name="str_id">Identifiant :</string>
+    <string name="str_name">Nom :</string>
+    <string name="str_phone_number">Numéro de téléphone :</string>
+    <string name="str_save">Enregistrer</string>
+    <string name="str_clear">Effacer</string>
+    <string name="str_delete">Supprimer</string>
+    <string name="str_confirm_delete_title">Confirmer la suppression</string>
+    <string name="str_confirm_delete_message">Êtes-vous sûr de vouloir supprimer cet employé ?</string>
+    <string name="str_yes">Oui</string>
+    <string name="str_no">Non</string>
+    <string name="str_error_id_empty">Veuillez entrer l`identifiant</string>
+    <string name="str_toast_select_employee">Veuillez sélectionner un employé à supprimer</string>
+    <string name="str_toast_delete_success">Supprimé avec succès</string>
+    <string name="str_department">Département</string>
+    <string name="str_employee">Employé(s) :</string>
+    <string name="str_birthPlace">Lieu de naissance</string>
+    <string name="str_add_new_employee">Ajouter un nouvel employé</string>
+    <string name="str_please_input_all_info">Vuiillez saisir toutes les informations ci-dessous</string>
+    <string name="str_cancel">Annuler</string>
+    <string name="str_save_now">Enregistrer maintenant</string>
 </resources>

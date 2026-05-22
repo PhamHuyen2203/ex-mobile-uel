@@ -28,4 +28,25 @@
     <string name="str_confirm_exit_message">你确定要退出吗？</string>
     <string name="str_confirm_exit_yes">是</string>
     <string name="str_confirm_exit_no">否</string>
+    <string name="str_confirm_exit">你确定要退出吗？</string>
+    <string name="str_id">ID：</string>
+    <string name="str_name">姓名：</string>
+    <string name="str_phone_number">电话号码：</string>
+    <string name="str_save">保存</string>
+    <string name="str_clear">清除</string>
+    <string name="str_delete">删除</string>
+    <string name="str_confirm_delete_title">确认删除</string>
+    <string name="str_confirm_delete_message">你确定要删除这位员工吗？</string>
+    <string name="str_yes">是</string>
+    <string name="str_no">否</string>
+    <string name="str_error_id_empty">请输入ID</string>
+    <string name="str_toast_select_employee">请选择要删除的员工</string>
+    <string name="str_toast_delete_success">删除成功</string>
+    <string name="str_department">部门</string>
+    <string name="str_employee">员工：</string>
+    <string name="str_birthPlace">出生地</string>
+    <string name="str_add_new_employee">添加新员工</string>
+    <string name="str_please_input_all_info">请在下面输入所有信息</string>
+    <string name="str_cancel">取消</string>
+    <string name="str_save_now">现在保存</string>
 </resources>

@@ -17,6 +17,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.models.ListUserAccount;
+import com.example.models.UserAccount;
+
 public class LoginActivity extends AppCompatActivity {
     
     EditText edtUsername;
@@ -48,11 +51,11 @@ public class LoginActivity extends AppCompatActivity {
         radAdministrator=findViewById(R.id.radAdministrator);
         radEmployee=findViewById(R.id.radEmployee);
     }
-
     public void loginSystem(View view) {
         String username=edtUsername.getText().toString();
         String pw=edtPassword.getText().toString();
-        if(username.equalsIgnoreCase("admin") && pw.equals("123"))
+        UserAccount account= ListUserAccount.login(username,pw);
+        if(account!=null)
         {
             SharedPreferences preferences=getSharedPreferences(name_share_ref,MODE_PRIVATE);
             SharedPreferences.Editor editor=preferences.edit();
@@ -65,13 +68,15 @@ public class LoginActivity extends AppCompatActivity {
             if(radAdministrator.isChecked())
             {
                 Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                intent.putExtra("USER_ACCOUNT", account);
                 startActivity(intent);
             }
             else
             {
-                Intent intent=new Intent(LoginActivity.this, EmployeeManagementActivity.class);
+                Intent intent=new Intent(LoginActivity.this, EmployeeAdvancedMainActivity.class);
                 startActivity(intent);
             }
+            finish(); // Đóng màn hình Login sau khi chuyển trang thành công
             txtMessage.setText(R.string.str_login_success);
         }
         else

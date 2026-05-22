@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
-        app:cardBackgroundColor="#CCFFFFFF"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,7 +112,7 @@
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -137,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/str_save_login_infor"
                 android:padding="12dp"
+                android:textColor="@color/black"
                 android:textSize="16sp"/>
 
             <LinearLayout

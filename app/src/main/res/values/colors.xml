@@ -11,5 +11,18 @@
     <color name="gray_light">#F5F5F5</color>
     <color name="white_2">#F3F3F3</color>
     <color name="grey_white">#E0E0E0</color>
+    <color name="green">#2E7D32</color>
+    <color name="light_green_bg">#E8F5E9</color>
+    <color name="order_status_complete">#1B5E20</color>
+
+    <color name="light_yellow_bg">#FFF9C4</color>
+    <color name="order_status_not_payment">#FBC02D</color>
+
+    <color name="light_blue_bg">#E3F2FD</color>
+    <color name="order_status_on_logistics">#1565C0</color>
+
+    <color name="light_red_bg">#FFEBEE</color>
+    <color name="order_status_complaint">#C62828</color>
+
     <color name="background_overlay">#80000000</color>
 </resources>

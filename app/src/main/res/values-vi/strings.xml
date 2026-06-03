@@ -49,4 +49,12 @@
     <string name="str_please_input_all_info">Vui lòng nhập đầy đủ thông tin bên dưới</string>
     <string name="str_cancel">Hủy</string>
     <string name="str_save_now">Lưu lại</string>
+    <string name="str_order_management">Order Management</string>
+    <string name="str_from_date">From Date:</string>
+    <string name="str_to_date">To Date:</string>
+    <string name="str_order_status_all">All</string>
+    <string name="str_order_status_completed">Completed</string>
+    <string name="str_order_status_not_payment">Not Payment</string>
+    <string name="str_order_status_on_logistics">On logistics</string>
+    <string name="str_order_status_complaint">Complaint</string>
 </resources>

@@ -1,0 +1,182 @@
+@startuml
+class com.example.models.Product {
+- String productId
+- String productName
+- int quantity
+- double price
+- double coupon
+- double VAT
+- String cateID
++ String getProductId()
++ void setProductId(String)
++ String getProductName()
++ void setProductName(String)
++ int getQuantity()
++ void setQuantity(int)
++ double getPrice()
++ void setPrice(double)
++ double getCoupon()
++ void setCoupon(double)
++ double getVAT()
++ void setVAT(double)
++ String getCateID()
++ void setCateID(String)
++ String toString()
+}
+
+
+class com.example.models.Category {
+- String categoryID
+- String categoryName
+- String description
++ String getCategoryID()
++ void setCategoryID(String)
++ String getCategoryName()
++ void setCategoryName(String)
++ String getDescription()
++ void setDescription(String)
++ String toString()
+}
+
+
+class com.example.models.DataWarehouse {
++ {static} ArrayList<Category> getCategories()
++ {static} ArrayList<Product> getProducts()
++ {static} ArrayList<Employee> getEmployee()
++ {static} ArrayList<Customer> getCustomers()
++ {static} ArrayList<Order> getOrders()
+}
+
+class com.example.models.UserAccount {
+- String userName
+- String password
+- String role
+- String displayName
+- boolean saved
++ String getUserName()
++ void setUserName(String)
++ String getPassword()
++ void setPassword(String)
++ String getRole()
++ void setRole(String)
++ String getDisplayName()
++ void setDisplayName(String)
++ boolean isSaved()
++ void setSaved(boolean)
++ String toString()
+}
+
+
+class com.example.models.Department {
+- String departmentId
+- String departmentName
+- ArrayList<Employee> listOfEmployee
++ void addEmployee(Employee)
++ void addListEmployee(ArrayList<Employee>)
++ ArrayList<Employee> getListOfEmployee()
++ String getDepartmentId()
++ void setDepartmentId(String)
++ String getDepartmentName()
++ void setDepartmentName(String)
++ String toString()
+}
+
+
+class com.example.models.OrderDetail {
+- String orderDetailID
+- String orderID
+- String productID
+- int quantity
+- double price
+- double coupon
+- double VAT
++ String getOrderDetailID()
++ void setOrderDetailID(String)
++ String getOrderID()
++ void setOrderID(String)
++ String getProductID()
++ void setProductID(String)
++ int getQuantity()
++ void setQuantity(int)
++ double getPrice()
++ void setPrice(double)
++ double getCoupon()
++ void setCoupon(double)
++ double getVAT()
++ void setVAT(double)
++ String toString()
+}
+
+
+class com.example.models.Employee {
+- String id
+- String name
+- String phone
+- String birthPlace
++ void setId(String)
++ String getId()
++ void setName(String)
++ String getName()
++ void setPhone(String)
++ String getPhone()
++ void setBirthPlace(String)
++ String getBirthPlace()
++ String toString()
+}
+
+
+class com.example.models.Customer {
+- String cusID
+- String cusName
+- String phone
+- String email
+- Date birthday
+- String address
++ String getCusID()
++ void setCusID(String)
++ String getCusName()
++ void setCusName(String)
++ String getPhone()
++ void setPhone(String)
++ String getEmail()
++ void setEmail(String)
++ Date getBirthday()
++ void setBirthday(Date)
++ String getAddress()
++ void setAddress(String)
++ String toString()
+}
+
+
+class com.example.models.Order {
+- String orderID
+- String cusID
+- String empID
+- Date orderDate
++ String getOrderID()
++ void setOrderID(String)
++ String getCusID()
++ void setCusID(String)
++ String getEmpID()
++ void setEmpID(String)
++ Date getOrderDate()
++ void setOrderDate(Date)
++ String toString()
+}
+
+
+class com.example.models.ListUserAccount {
++ {static} ArrayList<UserAccount> getUserAccount()
++ {static} UserAccount login(String,String)
+}
+
+
+
+java.io.Serializable <|.. com.example.models.Product
+java.io.Serializable <|.. com.example.models.UserAccount
+java.io.Serializable <|.. com.example.models.Department
+java.io.Serializable <|.. com.example.models.OrderDetail
+java.io.Serializable <|.. com.example.models.Employee
+java.io.Serializable <|.. com.example.models.Customer
+java.io.Serializable <|.. com.example.models.Order
+@enduml

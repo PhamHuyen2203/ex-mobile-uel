@@ -48,6 +48,21 @@
     <string name="str_please_input_all_info">Please enter all information below</string>
     <string name="str_cancel">Cancel</string>
     <string name="str_save_now">Save Now</string>
+    <string name="str_order_management">Order Management</string>
+    <string name="str_from_date">From Date:</string>
+    <string name="str_to_date">To Date:</string>
+    <string name="str_welcome_app">Welcome to Smart App</string>
+    <string name="str_control_center">Control Center</string>
+    <string name="str_orders">Order Management</string>
+    <string name="str_calculator">Calculator</string>
+    <string name="str_say_hello">Say Hello</string>
+    <string name="str_exit_app">Exit App</string>
+    <string name="str_my_major_title">My Major</string>
+    <string name="str_order_status_all">All</string>
+    <string name="str_order_status_completed">Completed</string>
+    <string name="str_order_status_not_payment">Not Payment</string>
+    <string name="str_order_status_on_logistics">On logistics</string>
+    <string name="str_order_status_complaint">Complaint</string>
     <string-array name="arr_province">
         <item>TP. Hà Nội</item>
         <item>TP. Hồ Chí Minh</item>

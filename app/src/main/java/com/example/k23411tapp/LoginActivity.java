@@ -3,12 +3,15 @@ package com.example.k23411tapp;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -20,6 +23,12 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.models.ListUserAccount;
 import com.example.models.UserAccount;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 public class LoginActivity extends AppCompatActivity {
     
     EditText edtUsername;
@@ -29,13 +38,56 @@ public class LoginActivity extends AppCompatActivity {
     String name_share_ref="LoginInfor";
 
     RadioButton radAdministrator, radEmployee;
-    
+
+    public static final String DATABASE_NAME = "K23411TSales.sqlite";
+    public static final String DB_PATH_SUFFIX = "/databases/";
+    public static SQLiteDatabase database = null;
+    private void copyDataBase(){
+        try{
+            File dbFile = getDatabasePath(DATABASE_NAME);
+            if(!dbFile.exists()){
+                if(CopyDBFromAsset()){
+                    Toast.makeText(LoginActivity.this,
+                            "Copy database successful!", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(LoginActivity.this,
+                            "Copy database fail!", Toast.LENGTH_LONG).show();
+                }
+            }
+        }catch (Exception e){
+            Log.e("Error: ", e.toString());
+        }
+    }
+
+    private boolean CopyDBFromAsset() {
+        String dbPath = getApplicationInfo().dataDir + DB_PATH_SUFFIX + DATABASE_NAME;
+        try {
+            InputStream inputStream = getAssets().open(DATABASE_NAME);
+            File f = new File(getApplicationInfo().dataDir + DB_PATH_SUFFIX);
+            if(!f.exists()){
+                f.mkdir();
+            }
+            OutputStream outputStream = new FileOutputStream(dbPath);
+            byte[] buffer = new byte[1024]; int length;
+            while((length=inputStream.read(buffer))>0){
+                outputStream.write(buffer,0, length);
+            }
+            outputStream.flush();  outputStream.close(); inputStream.close();
+            return  true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
         addViews ();
+        copyDataBase();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

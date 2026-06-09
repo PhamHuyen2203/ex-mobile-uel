@@ -9,19 +9,19 @@ public class Product implements Serializable {
     private double price;
     private double coupon;
     private double VAT;
-    private String cateID;
+    private String categoryID;
 
     public Product() {
     }
 
-    public Product(String productId, String productName, int quantity, double price, double coupon, double VAT, String cateID) {
+    public Product(String productId, String productName, int quantity, double price, double coupon, double VAT, String categoryID) {
         this.productId = productId;
         this.productName = productName;
         this.quantity = quantity;
         this.price = price;
         this.coupon = coupon;
         this.VAT = VAT;
-        this.cateID = cateID;
+        this.categoryID = categoryID;
     }
 
     public String getProductId() {
@@ -72,12 +72,12 @@ public class Product implements Serializable {
         this.VAT = VAT;
     }
 
-    public String getCateID() {
-        return cateID;
+    public String getCategoryID() {
+        return categoryID;
     }
 
-    public void setCateID(String cateID) {
-        this.cateID = cateID;
+    public void setCategoryID(String categoryID) {
+        this.categoryID = categoryID;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class Product implements Serializable {
                 ", price=" + price +
                 ", coupon=" + coupon +
                 ", VAT=" + VAT +
-                ", cateID='" + cateID + '\'' +
+                ", categoryID='" + categoryID + '\'' +
                 '}';
     }
 }

@@ -57,4 +57,7 @@
     <string name="str_order_status_not_payment">Not Payment</string>
     <string name="str_order_status_on_logistics">On logistics</string>
     <string name="str_order_status_complaint">Complaint</string>
+    <string name="str_category_id">Category ID</string>
+    <string name="str_category_name">Category Name</string>
+    <string name="str_description">Description</string>
 </resources>

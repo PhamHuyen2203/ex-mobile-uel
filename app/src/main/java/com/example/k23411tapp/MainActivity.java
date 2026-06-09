@@ -66,4 +66,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, OrderManagementActivity.class);
         startActivity(intent);
     }
+
+    public void openCategoryManagement (View view) {
+        Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+        startActivity(intent);
+    }
+
+    public void openProductManagement (View view) {
+        Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+        startActivity(intent);
+    }
 }

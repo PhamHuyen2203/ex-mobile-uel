@@ -54,6 +54,8 @@
     <string name="str_welcome_app">Welcome to Smart App</string>
     <string name="str_control_center">Control Center</string>
     <string name="str_orders">Order Management</string>
+    <string name="str_categories">Category Management</string>
+    <string name="str_products">Product Management</string>
     <string name="str_calculator">Calculator</string>
     <string name="str_say_hello">Say Hello</string>
     <string name="str_exit_app">Exit App</string>
@@ -63,6 +65,11 @@
     <string name="str_order_status_not_payment">Not Payment</string>
     <string name="str_order_status_on_logistics">On logistics</string>
     <string name="str_order_status_complaint">Complaint</string>
+    <string name="str_add_new_category">Add new category</string>
+    <string name="str_category_statistics">Category Statistic</string>
+    <string name="str_category_id">Category ID</string>
+    <string name="str_category_name">Category Name</string>
+    <string name="str_description">Description</string>
     <string-array name="arr_province">
         <item>TP. Hà Nội</item>
         <item>TP. Hồ Chí Minh</item>

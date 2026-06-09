@@ -12,15 +12,16 @@ public class DataWarehouse {
     private static ArrayList<Customer> customers;
     private static ArrayList<Order> orders;
     private static ArrayList<OrderDetail> orderDetails;
+    private static java.util.HashMap<String, Double> orderTotals = new java.util.HashMap<>();
 
     public static ArrayList<Category> getCategories() {
         if (categories == null) {
             categories = new ArrayList<>();
             categories.add(new Category("C1", "Mỳ tôm", "Các loại mỳ tôm chống đói"));
             categories.add(new Category("C2", "Rau củ quả", "Rau củ quả tươi"));
-            categories.add(new Category("C3", "Nước uống có gas", "Nước uống có gas"));
-            categories.add(new Category("C4", "Trái cây", "Trái cây Vietgap"));
-            categories.add(new Category("C5", "Thịt", "Thịt các loại"));
+            categories.add(new Category("C3", "Nước uống có gas", "Nước uống có gas, Uống tẹt naaa"));
+            categories.add(new Category("C4", "Trái cây", "Trái cây Vietgap, tươi ngon mỗi ngày"));
+            categories.add(new Category("C5", "Thịt", "Thịt các loại, đảm bảo vệ sinh"));
         }
         return categories;
     }
@@ -126,7 +127,7 @@ public class DataWarehouse {
                 int numItems = 1 + (i % 3);
                 for (int j = 0; j < numItems; j++) {
                     Product product = prods.get((i + j) % prods.size());
-                    orderDetails.add(new OrderDetail(String.format(Locale.getDefault(), "Odt%05d", detailCounter++), 
+                    orderDetails.add(new OrderDetail(String.format(Locale.getDefault(), "Odt%05d", detailCounter++),
                         order.getOrderID(), product.getProductId(), 1 + j, product.getPrice(), product.getCoupon(), product.getVAT()));
                 }
             }
@@ -135,14 +136,20 @@ public class DataWarehouse {
     }
 
     public static double sumOfMoneyForOrder(Order order) {
+        if (order == null) return 0;
+        String id = order.getOrderID();
+        if (orderTotals.containsKey(id)) {
+            return orderTotals.get(id);
+        }
+
         double sum = 0;
         ArrayList<OrderDetail> details = getOrderDetails();
-        String id = order.getOrderID();
         for (OrderDetail detail : details) {
             if (detail.getOrderID().equals(id)) {
                 sum += (detail.getQuantity() * detail.getPrice() - detail.getCoupon()) * (1 + detail.getVAT());
             }
         }
+        orderTotals.put(id, sum);
         return sum;
     }
 

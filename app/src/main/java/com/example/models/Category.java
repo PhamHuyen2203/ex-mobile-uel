@@ -41,9 +41,9 @@ public class Category {
                 '}';
     }
 
-    public Category(String description, String categoryName, String categoryID) {
-        this.description = description;
-        this.categoryName = categoryName;
+    public Category(String categoryID, String categoryName, String description) {
         this.categoryID = categoryID;
+        this.categoryName = categoryName;
+        this.description = description;
     }
 }

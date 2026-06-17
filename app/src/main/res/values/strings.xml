@@ -60,16 +60,27 @@
     <string name="str_say_hello">Say Hello</string>
     <string name="str_exit_app">Exit App</string>
     <string name="str_my_major_title">My Major</string>
+    <string name="str_my_contact">My Contact Management</string>
+    <string name="str_sms_spyware">SMS Spyware</string>
+    <string name="str_multi_thread">Multi Thread Demo</string>
+    <string name="str_multi_thread_object">Multi Thread Object Demo</string>
     <string name="str_order_status_all">All</string>
     <string name="str_order_status_completed">Completed</string>
     <string name="str_order_status_not_payment">Not Payment</string>
     <string name="str_order_status_on_logistics">On logistics</string>
     <string name="str_order_status_complaint">Complaint</string>
     <string name="str_add_new_category">Add new category</string>
-    <string name="str_category_statistics">Category Statistic</string>
+    <string name="str_category_statistics">Category statistic</string>
     <string name="str_category_id">Category ID</string>
     <string name="str_category_name">Category Name</string>
     <string name="str_description">Description</string>
+    <string name="str_phone_incoming">Phone Incoming</string>
+    <string name="str_date_delivery">Date Delivery</string>
+    <string name="str_message_body">Message Body</string>
+    <string name="str_number_button">Number Of Button</string>
+    <string name="str_create_button">Create Button</string>
+    <string name="str_number_of_product">Number of product</string>
+    <string name="str_download_product">Download product</string>
     <string-array name="arr_province">
         <item>TP. Hà Nội</item>
         <item>TP. Hồ Chí Minh</item>

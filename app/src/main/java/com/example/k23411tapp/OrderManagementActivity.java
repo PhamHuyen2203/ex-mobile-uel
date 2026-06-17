@@ -106,8 +106,8 @@ public class OrderManagementActivity extends AppCompatActivity {
         txtFromDate.setText(sdf.format(calFromDate.getTime()));
         txtToDate.setText(sdf.format(calToDate.getTime()));
 
-        orders = new ArrayList<>(DataWarehouse.getOrders());
-        orderAdapter = new OrderAdapter(this, R.layout.item_order, orders);
+        orders = new ArrayList<>(DataWarehouse.filterOrders(currentStatus, calFromDate.getTime(), calToDate.getTime()));
+        orderAdapter = new OrderAdapter(this, R.layout.order_custom_item, orders);
         lvOrder.setAdapter(orderAdapter);
     }
 
@@ -127,6 +127,6 @@ public class OrderManagementActivity extends AppCompatActivity {
         else if (id == R.id.mnu_order_status_complaint) currentStatus = OrderStatus.COMPLAINT;
         
         refreshData();
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }

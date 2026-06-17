@@ -1,12 +1,18 @@
 package com.example.k23411tapp;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -36,8 +42,28 @@ public class LoginActivity extends AppCompatActivity {
     TextView txtMessage;
     CheckBox chkSaveInfor;
     String name_share_ref="LoginInfor";
-
     RadioButton radAdministrator, radEmployee;
+    Button btnLogin;
+    BroadcastReceiver internetStateReceiver=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            ConnectivityManager connectivityManager=
+                    (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
+            if(connectivityManager!=null) {
+                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    btnLogin.setVisibility(View.VISIBLE);
+                } else {
+                    btnLogin.setVisibility(View.INVISIBLE);
+                    Toast.makeText(context,"Mất kết nối mạng", Toast.LENGTH_LONG).show();
+                }
+            }
+            else {
+                btnLogin.setVisibility(View.INVISIBLE);
+                Toast.makeText(context,"Mất kết nối mạng", Toast.LENGTH_LONG).show();
+            }
+        }
+    };
 
     public static final String DATABASE_NAME = "K23411TSales.sqlite";
     public static final String DB_PATH_SUFFIX = "/databases/";
@@ -102,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
         chkSaveInfor=findViewById(R.id.chkSaveInfor);
         radAdministrator=findViewById(R.id.radAdministrator);
         radEmployee=findViewById(R.id.radEmployee);
+        btnLogin=findViewById(R.id.btnLogin);
     }
     public void loginSystem(View view) {
         String username=edtUsername.getText().toString();
@@ -172,5 +199,14 @@ public class LoginActivity extends AppCompatActivity {
             edtPassword.setText(password);
         }
         chkSaveInfor.setChecked(saved);
+
+        IntentFilter internetFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(internetStateReceiver, internetFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(internetStateReceiver);
     }
 }

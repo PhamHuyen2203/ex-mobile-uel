@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mnu_categort_add_new"
+        android:id="@+id/mnu_category_add_new"
         android:title="@string/str_add_new_category" />
     <item
         android:id="@+id/mnu_category_statistic"

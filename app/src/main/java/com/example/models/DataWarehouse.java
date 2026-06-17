@@ -63,6 +63,13 @@ public class DataWarehouse {
         return products;
     }
 
+    public static Product downloadProduct(int i) {
+        ArrayList<Product> products = getProducts();
+        if(i<0 || i>=products.size())
+            return null;
+        return products.get(i);
+    }
+
     public static ArrayList<Employee> getEmployee() {
         if (employees == null) {
             employees = new ArrayList<>();

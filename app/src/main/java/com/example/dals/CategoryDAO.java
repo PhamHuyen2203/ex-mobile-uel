@@ -38,18 +38,21 @@ public class CategoryDAO {
         return categories;
     }
 
-    public static long insertCategory(Context context, Category category) {
+    public static long saveNewCategory(Context context, Category category) {
+        long result=-1;
         SQLiteDatabase database = context.openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
         ContentValues values = new ContentValues();
-        values.put("CategoryId", category.getCategoryID());
+        values.put("CategoryID", category.getCategoryID());
         values.put("CategoryName", category.getCategoryName());
-        long result = database.insert(TABLE_NAME, null, values);
+        values.put("Description", category.getDescription());
+        result = database.insert(TABLE_NAME, null, values);
         database.close();
         return result;
     }
+
     public static long deleteCategory(Context context, Category category) {
         SQLiteDatabase database = context.openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
-        long result = database.delete(TABLE_NAME, "CategoryId=?", new String[]{category.getCategoryID()});
+        long result = database.delete(TABLE_NAME, "CategoryID=?", new String[]{category.getCategoryID()});
         database.close();
         return result;
     }

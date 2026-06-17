@@ -76,4 +76,24 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, ProductActivity.class);
         startActivity(intent);
     }
+
+    public void openMyContact (View view) {
+        Intent intent = new Intent(MainActivity.this, MyContactActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSMSSpyware (View view) {
+        Intent intent = new Intent(MainActivity.this, SMSSpywareActivity.class);
+        startActivity(intent);
+    }
+
+    public void openMultiThreadDemo (View view) {
+        Intent intent = new Intent(MainActivity.this, MultiThreadActivity.class);
+        startActivity(intent);
+    }
+
+    public void openMultiThreadObject (View view) {
+        Intent intent = new Intent(MainActivity.this, MultiThreadObjectActivity.class);
+        startActivity(intent);
+    }
 }

@@ -60,4 +60,11 @@
     <string name="str_category_id">Category ID</string>
     <string name="str_category_name">Category Name</string>
     <string name="str_description">Description</string>
+    <string name="str_phone_incoming">Phone Incoming</string>
+    <string name="str_date_delivery">Date Delivery</string>
+    <string name="str_message_body">Message Body</string>
+    <string name="str_number_button">Number Of Button</string>
+    <string name="str_create_button">Create Button</string>
+    <string name="str_number_of_product">Number of product</string>
+    <string name="str_download_product">Download product</string>
 </resources>

@@ -1,7 +1,6 @@
 package com.example.adapters;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +34,7 @@ public class CategoryAdapter extends ArrayAdapter<Category>
 
         TextView txtCateID=custom.findViewById(R.id.txtCateID);
         TextView txtCateName=custom.findViewById(R.id.txtCateName);
-        TextView txtDescription=custom.findViewById(R.id.txtDescription);
+        TextView txtDescription=custom.findViewById(R.id.txtCategoryDescription);
 
         txtCateID.setText(cate.getCategoryID());
         txtCateName.setText(cate.getCategoryName());

@@ -28,6 +28,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K23411TApp">
         <activity
+            android:name=".WeatherDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProvinceActivity"
+            android:exported="false" />
+        <activity
             android:name=".MultiThreadObjectActivity"
             android:exported="false" />
         <activity

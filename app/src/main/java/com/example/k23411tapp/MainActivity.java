@@ -96,4 +96,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, MultiThreadObjectActivity.class);
         startActivity(intent);
     }
+
+    public void openWeatherForecast (View view) {
+        Intent intent = new Intent(MainActivity.this, ProvinceActivity.class);
+        startActivity(intent);
+    }
 }

@@ -67,4 +67,6 @@
     <string name="str_create_button">Create Button</string>
     <string name="str_number_of_product">Number of product</string>
     <string name="str_download_product">Download product</string>
+    <string name="str_play_audio1">Play Audio 1</string>
+    <string name="str_play_audio2">Play Audio 2</string>
 </resources>

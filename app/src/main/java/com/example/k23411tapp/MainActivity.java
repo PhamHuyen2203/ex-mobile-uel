@@ -101,4 +101,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, ProvinceActivity.class);
         startActivity(intent);
     }
+
+    public void openFontAndMusic (View view) {
+        Intent intent = new Intent(MainActivity.this, FontAndMusicActivity.class);
+        startActivity(intent);
+    }
 }

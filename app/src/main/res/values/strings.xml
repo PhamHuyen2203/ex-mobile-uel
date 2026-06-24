@@ -83,6 +83,12 @@
     <string name="str_download_product">Download product</string>
     <string name="str_play_audio1">Play Audio 1</string>
     <string name="str_play_audio2">Play Audio 2</string>
+    <string name="str_insert_contact">Insert Contact</string>
+    <string name="str_contact_id">Contact ID:</string>
+    <string name="str_contact_name">Contact Name:</string>
+    <string name="str_email">Email:</string>
+    <string name="str_back">Back</string>
+    <string name="str_update">Update</string>
     <string-array name="arr_province">
         <item>TP. Hà Nội</item>
         <item>TP. Hồ Chí Minh</item>

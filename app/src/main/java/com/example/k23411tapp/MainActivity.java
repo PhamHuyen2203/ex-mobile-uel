@@ -106,4 +106,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, FontAndMusicActivity.class);
         startActivity(intent);
     }
+
+    public void openMyUelSearch (View view) {
+        Intent intent = new Intent(MainActivity.this, MyUelActivity.class);
+        startActivity(intent);
+    }
+
+    public void openContactFirebase (View view) {
+        Intent intent = new Intent(MainActivity.this, FirebaseContactActivity.class);
+        startActivity(intent);
+    }
 }
